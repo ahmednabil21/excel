@@ -32,3 +32,16 @@
 /Users/al-noor/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/WebApplication1.pdb
 /Users/al-noor/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/WebApplication1.genruntimeconfig.cache
 /Users/al-noor/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/ref/WebApplication1.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/EPPlus.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/EPPlus.Interfaces.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/EPPlus.System.Drawing.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/EPPlus.WebApi.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/System.Net.Http.Formatting.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/System.Web.Http.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/System.Web.Http.WebHost.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/Microsoft.IO.RecyclableMemoryStream.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/System.Drawing.Common.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll
+/Users/al-noor/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll

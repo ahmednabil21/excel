@@ -1,45 +1,37 @@
-var builder = WebApplication.CreateBuilder(args);
+using System;
+using System.IO;
+using OfficeOpenXml;
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+namespace WebApplication1
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
+    class Program
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+        static void Main()
+        {
+            // تمكين الترخيص للاستخدام غير التجاري
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-app.Run();
+            // تحديد مسار الملف
+            string filePath = "DataExcel.xlsx";
+            
+            // إنشاء ملف Excel
+            using (ExcelPackage package = new ExcelPackage())
+            {
+                // إضافة ورقة عمل جديدة وتسميتها
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+                // كتابة بعض البيانات في الصف الأول
+                worksheet.Cells[1, 1].Value = "Name";
+                worksheet.Cells[1, 2].Value = "Age";
+                worksheet.Cells[2, 1].Value = "Amaar";
+                worksheet.Cells[2, 2].Value = 30;
+
+                // حفظ الملف إلى الموقع المحدد
+                FileInfo file = new FileInfo(filePath);
+                package.SaveAs(file);
+            }
+
+            Console.WriteLine($"Excel file '{filePath}' has been created.");
+        }
+    }
 }
-//ahmed
