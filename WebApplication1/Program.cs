@@ -1,37 +1,26 @@
-using System;
-using System.IO;
-using OfficeOpenXml;
+var builder = WebApplication.CreateBuilder(args);
 
-namespace WebApplication1
+// إضافة خدمات Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// إضافة دعم Controllers
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// تفعيل Swagger فقط في بيئة التطوير
+if (app.Environment.IsDevelopment())
 {
-    class Program
-    {
-        static void Main()
-        {
-            // تمكين الترخيص للاستخدام غير التجاري
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-            // تحديد مسار الملف
-            string filePath = "DataExcel.xlsx";
-            
-            // إنشاء ملف Excel
-            using (ExcelPackage package = new ExcelPackage())
-            {
-                // إضافة ورقة عمل جديدة وتسميتها
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
-
-                // كتابة بعض البيانات في الصف الأول
-                worksheet.Cells[1, 1].Value = "Name";
-                worksheet.Cells[1, 2].Value = "Age";
-                worksheet.Cells[2, 1].Value = "Amaar";
-                worksheet.Cells[2, 2].Value = 30;
-
-                // حفظ الملف إلى الموقع المحدد
-                FileInfo file = new FileInfo(filePath);
-                package.SaveAs(file);
-            }
-
-            Console.WriteLine($"Excel file '{filePath}' has been created.");
-        }
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+// تحديد التوجيه (routing) الافتراضي
+app.MapControllers();
+
+app.Run();
